@@ -1,0 +1,39 @@
+stolkerbt
+clave: stolker2019bt
+tumhary pakhi novela de la india
+
+github
+cuenta: dccoyllo
+clave: Jhondavid99
+
+instagram
+cuenta: happynew145
+clave: teoma202018
+
+CUENTA DE STEAM
+user: yafred5
+password: jdcpro99
+codigo de recuperacion
+de Steam Guard: R30093
+
+
+
+  npm start
+    Starts the development server.
+
+  npm run build
+    Bundles the app into static files for production.
+
+  npm test
+    Starts the test runner.
+
+  npm run eject
+    Removes this tool and copies build dependencies, configuration files
+    and scripts into the app directory. If you do this, you can’t go back!
+
+We suggest that you begin by typing:
+
+  cd trabajofinal
+  npm start
+
+https://wireframe.cc/cxsPFo
