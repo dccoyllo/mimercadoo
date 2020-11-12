@@ -1,2 +1,2 @@
-# Mimercadoo
-desarrollado con React.js
+# Mimercadoo - API
+desarrollado API REST con SPRING BOOT
