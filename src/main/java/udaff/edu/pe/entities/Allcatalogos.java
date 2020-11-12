@@ -1,5 +1,5 @@
 package udaff.edu.pe.entities;
-// Generated 12 nov. 2020 0:23:06 by Hibernate Tools 5.2.12.Final
+// Generated 12 nov. 2020 8:24:56 by Hibernate Tools 5.2.12.Final
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
@@ -38,7 +38,8 @@ public class Allcatalogos implements java.io.Serializable {
 			@AttributeOverride(name = "CCantidad", column = @Column(name = "c_cantidad")),
 			@AttributeOverride(name = "CFechaCreada", column = @Column(name = "c_fecha_creada", nullable = false, length = 10)),
 			@AttributeOverride(name = "tpId", column = @Column(name = "tp_id", nullable = false)),
-			@AttributeOverride(name = "tpNombre", column = @Column(name = "tp_nombre", nullable = false, length = 60)) })
+			@AttributeOverride(name = "tpNombre", column = @Column(name = "tp_nombre", nullable = false, length = 60)),
+			@AttributeOverride(name = "tnId", column = @Column(name = "tn_id", nullable = false)) })
 	public AllcatalogosId getId() {
 		return this.id;
 	}

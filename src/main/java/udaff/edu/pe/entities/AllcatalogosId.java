@@ -1,5 +1,5 @@
 package udaff.edu.pe.entities;
-// Generated 12 nov. 2020 0:23:06 by Hibernate Tools 5.2.12.Final
+// Generated 12 nov. 2020 8:24:56 by Hibernate Tools 5.2.12.Final
 
 import java.util.Date;
 import javax.persistence.Column;
@@ -24,12 +24,13 @@ public class AllcatalogosId implements java.io.Serializable {
 	private Date CFechaCreada;
 	private int tpId;
 	private String tpNombre;
+	private int tnId;
 
 	public AllcatalogosId() {
 	}
 
 	public AllcatalogosId(int PId, int MId, int CId, String CTitulo, String CTipoVenta, Date CFechaCreada, int tpId,
-			String tpNombre) {
+			String tpNombre, int tnId) {
 		this.PId = PId;
 		this.MId = MId;
 		this.CId = CId;
@@ -38,10 +39,12 @@ public class AllcatalogosId implements java.io.Serializable {
 		this.CFechaCreada = CFechaCreada;
 		this.tpId = tpId;
 		this.tpNombre = tpNombre;
+		this.tnId = tnId;
 	}
 
 	public AllcatalogosId(int PId, String PNombre, int MId, String MNombre, int CId, String CTitulo, String CImagen,
-			Double CPrecio, String CTipoVenta, Integer CCantidad, Date CFechaCreada, int tpId, String tpNombre) {
+			Double CPrecio, String CTipoVenta, Integer CCantidad, Date CFechaCreada, int tpId, String tpNombre,
+			int tnId) {
 		this.PId = PId;
 		this.PNombre = PNombre;
 		this.MId = MId;
@@ -55,6 +58,7 @@ public class AllcatalogosId implements java.io.Serializable {
 		this.CFechaCreada = CFechaCreada;
 		this.tpId = tpId;
 		this.tpNombre = tpNombre;
+		this.tnId = tnId;
 	}
 
 	@Column(name = "p_id", nullable = false)
@@ -174,6 +178,15 @@ public class AllcatalogosId implements java.io.Serializable {
 		this.tpNombre = tpNombre;
 	}
 
+	@Column(name = "tn_id", nullable = false)
+	public int getTnId() {
+		return this.tnId;
+	}
+
+	public void setTnId(int tnId) {
+		this.tnId = tnId;
+	}
+
 	public boolean equals(Object other) {
 		if ((this == other))
 			return true;
@@ -205,7 +218,8 @@ public class AllcatalogosId implements java.io.Serializable {
 								&& this.getCFechaCreada().equals(castOther.getCFechaCreada())))
 				&& (this.getTpId() == castOther.getTpId())
 				&& ((this.getTpNombre() == castOther.getTpNombre()) || (this.getTpNombre() != null
-						&& castOther.getTpNombre() != null && this.getTpNombre().equals(castOther.getTpNombre())));
+						&& castOther.getTpNombre() != null && this.getTpNombre().equals(castOther.getTpNombre())))
+				&& (this.getTnId() == castOther.getTnId());
 	}
 
 	public int hashCode() {
@@ -224,6 +238,7 @@ public class AllcatalogosId implements java.io.Serializable {
 		result = 37 * result + (getCFechaCreada() == null ? 0 : this.getCFechaCreada().hashCode());
 		result = 37 * result + this.getTpId();
 		result = 37 * result + (getTpNombre() == null ? 0 : this.getTpNombre().hashCode());
+		result = 37 * result + this.getTnId();
 		return result;
 	}
 

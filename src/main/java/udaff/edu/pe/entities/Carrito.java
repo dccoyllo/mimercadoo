@@ -1,5 +1,5 @@
 package udaff.edu.pe.entities;
-// Generated 12 nov. 2020 0:23:06 by Hibernate Tools 5.2.12.Final
+// Generated 12 nov. 2020 8:24:56 by Hibernate Tools 5.2.12.Final
 
 import java.util.Date;
 import javax.persistence.AttributeOverride;
