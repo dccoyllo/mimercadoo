@@ -1,2 +1,2 @@
 # Mimercadoo - API
-desarrollado API REST con SPRING BOOT
+desarrollando API REST con SPRING BOOT
