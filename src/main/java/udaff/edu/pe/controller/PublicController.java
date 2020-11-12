@@ -96,14 +96,13 @@ public class PublicController {
 	@ResponseBody
 	public Login getLogin(@RequestParam String cuenta, @RequestParam String clave) {
 		// @RequestBody ObjectNode objeto
-		EncriptarClave encript = new EncriptarClave();
-		return publicService.getSession(cuenta, encript.encode(clave));
+		return publicService.getSession(cuenta, new EncriptarClave().encode(clave));
 	}
 
 	@PostMapping("/newlogin")
 	@ResponseBody
-	public boolean setUsuario(@RequestParam String cuenta, @RequestParam String email, @RequestParam String clave) {
-		EncriptarClave encript = new EncriptarClave();
+	public boolean createUsuario(@RequestParam String cuenta, @RequestParam String email, @RequestParam String clave) {
+//		EncriptarClave encript = new EncriptarClave();
 		Usuario usuario = new Usuario();
 		Perfil perfil = new Perfil();
 		perfil.setIdPerfil(1);
@@ -113,7 +112,7 @@ public class PublicController {
 
 		usuario.setCuenta(cuenta);
 		usuario.setEmail(email);
-		usuario.setClave(encript.encode(clave));
+		usuario.setClave(new EncriptarClave().encode(clave));
 		usuario.setPerfil(perfil);
 		usuario.setNombre("");
 		usuario.setApellido("");

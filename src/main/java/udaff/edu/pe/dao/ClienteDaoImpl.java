@@ -1,5 +1,7 @@
 package udaff.edu.pe.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -8,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import udaff.edu.pe.entities.Carrito;
 import udaff.edu.pe.entities.CarritoId;
 import udaff.edu.pe.entities.Catalogo;
+import udaff.edu.pe.entities.DetalleCarrito;
 import udaff.edu.pe.entities.Usuario;
 
 @Repository
@@ -73,6 +76,12 @@ public class ClienteDaoImpl implements ClienteDao {
 		// TODO Auto-generated method stub
 		em.merge(catalogo);
 		return true;
+	}
+
+	@Override
+	public List<DetalleCarrito> getAllCarritoUsuarioId(int usuario_id) {
+		// TODO Auto-generated method stub
+		return em.createQuery("From DetalleCarrito where id.usuarioId =: usuario", DetalleCarrito.class).setParameter("usuario", usuario_id).getResultList();
 	}
 
 }

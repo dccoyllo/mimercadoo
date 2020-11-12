@@ -1,5 +1,7 @@
 package udaff.edu.pe.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -8,6 +10,7 @@ import udaff.edu.pe.dao.ClienteDao;
 import udaff.edu.pe.entities.Carrito;
 import udaff.edu.pe.entities.CarritoId;
 import udaff.edu.pe.entities.Catalogo;
+import udaff.edu.pe.entities.DetalleCarrito;
 import udaff.edu.pe.entities.Usuario;
 
 @Service
@@ -69,6 +72,12 @@ public class ClienteServiceImpl implements ClienteService {
 		// TODO Auto-generated method stub
 		cliDao.updateCatalogoCantidad(catalogo);
 		return true;
+	}
+
+	@Override
+	public List<DetalleCarrito> getAllCarritoUsuarioId(int usuario_id) {
+		// TODO Auto-generated method stub
+		return cliDao.getAllCarritoUsuarioId(usuario_id);
 	}
 
 }
