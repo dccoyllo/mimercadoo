@@ -19,9 +19,9 @@ public class PuestoServiceImpl implements PuestoService {
 	private PuestoDao ppDao;
 
 	@Override
-	public Puesto getIdPuesto(int p_id) {
+	public Puesto getIdPuesto(int puesto_id) {
 		// TODO Auto-generated method stub
-		return ppDao.getIdPuesto(p_id);
+		return ppDao.getIdPuesto(puesto_id);
 	}
 
 	@Override

@@ -38,60 +38,59 @@ public class PublicController {
 	@Autowired
 	private UploadFileService ufService;
 
-
 	@GetMapping("/rubros")
 	@ResponseBody
 	public List<TipoNegocio> getAllRubros() {
 		return publicService.getAllRubros();
 	}
-	
+
 	@GetMapping("/categoria/{rubro_id}")
 	@ResponseBody
 	public List<TipoProducto> getAllCategorias(@PathVariable int rubro_id) {
 		return publicService.getAllCategorias(rubro_id);
 	}
-	
+
 	@GetMapping("/mercado")
 	@ResponseBody
 	public List<Mercado> getAllMercados() {
 		return publicService.getAllMercados();
 	}
+
 	@GetMapping("/mercado/{mercado_id}")
 	@ResponseBody
 	public Mercado getMercadoId(@PathVariable int mercado_id) {
 		return publicService.getMercadoId(mercado_id);
 	}
-	
+
 	@GetMapping("/catalogo/m/{mercado_id}")
 	@ResponseBody
 	public List<Allcatalogos> getAllCatalogosMercado(@PathVariable int mercado_id) {
 		return publicService.getAllCatalogosMercado(mercado_id);
 	}
-	
+
 	@GetMapping("/catalogo/p/{puesto_id}")
 	@ResponseBody
 	public List<Allcatalogos> getAllCatalogosPuesto(@PathVariable int puesto_id) {
 		return publicService.getAllCatalogosPuesto(puesto_id);
 	}
-	
+
 	@GetMapping("/catalogo/{catalogo_id}")
 	@ResponseBody
 	public Allcatalogos getCatalogo(@PathVariable int catalogo_id) {
 		return publicService.getCatalogo(catalogo_id);
 	}
-	
+
 	@GetMapping("/catalogo/r/{rubro_id}")
 	@ResponseBody
 	public List<Allcatalogos> getAllCatalogosRubro(@PathVariable int rubro_id) {
 		return publicService.getAllCatalogosRubro(rubro_id);
 	}
-	
+
 	@GetMapping("/catalogo/c/{categoria_id}")
 	@ResponseBody
 	public List<Allcatalogos> getAllCatalogosCategoria(@PathVariable int categoria_id) {
 		return publicService.getAllCatalogosCategoria(categoria_id);
 	}
-	
 
 	@PostMapping("/login")
 	@ResponseBody

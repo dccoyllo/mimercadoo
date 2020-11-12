@@ -1,5 +1,5 @@
 package udaff.edu.pe.entities;
-// Generated 6 nov. 2020 12:04:27 by Hibernate Tools 5.2.12.Final
+// Generated 12 nov. 2020 0:23:06 by Hibernate Tools 5.2.12.Final
 
 import java.util.Date;
 import javax.persistence.Column;
@@ -111,7 +111,7 @@ public class AllcatalogosId implements java.io.Serializable {
 		this.CTitulo = CTitulo;
 	}
 
-	@Column(name = "c_imagen", length = 100)
+	@Column(name = "c_imagen", length = 200)
 	public String getCImagen() {
 		return this.CImagen;
 	}

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import udaff.edu.pe.entities.Carrito;
 import udaff.edu.pe.entities.CarritoId;
+import udaff.edu.pe.entities.Catalogo;
 import udaff.edu.pe.entities.Usuario;
 
 @Repository
@@ -35,27 +36,43 @@ public class ClienteDaoImpl implements ClienteDao {
 	}
 
 	@Override
-	public CarritoId getCarrito(int catalogo_id, int usuario_id) {
+	public Carrito getCarrito(CarritoId user_catalogo_id) {
 		// TODO Auto-generated method stub
-		return null;
+		return em.find(Carrito.class, user_catalogo_id);
 	}
 
 	@Override
 	public boolean createCarrito(Carrito carrito) {
 		// TODO Auto-generated method stub
-		return false;
+		em.persist(carrito);
+		return true;
 	}
 
 	@Override
 	public boolean updateCarrito(Carrito carrito) {
 		// TODO Auto-generated method stub
-		return false;
+		em.merge(carrito);
+		return true;
 	}
 
 	@Override
 	public boolean deleteCarrito(Carrito carrito) {
 		// TODO Auto-generated method stub
-		return false;
+		em.remove(carrito);
+		return true;
+	}
+
+	@Override
+	public Catalogo getCatalogoId(int catalogo_id) {
+		// TODO Auto-generated method stub
+		return em.find(Catalogo.class, catalogo_id);
+	}
+
+	@Override
+	public boolean updateCatalogoCantidad(Catalogo catalogo) {
+		// TODO Auto-generated method stub
+		em.merge(catalogo);
+		return true;
 	}
 
 }

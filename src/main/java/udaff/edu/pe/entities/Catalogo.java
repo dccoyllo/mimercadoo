@@ -1,5 +1,5 @@
 package udaff.edu.pe.entities;
-// Generated 6 nov. 2020 12:04:27 by Hibernate Tools 5.2.12.Final
+// Generated 12 nov. 2020 0:23:06 by Hibernate Tools 5.2.12.Final
 
 import java.util.Date;
 import java.util.HashSet;
@@ -100,7 +100,7 @@ public class Catalogo implements java.io.Serializable {
 		this.titulo = titulo;
 	}
 
-	@Column(name = "imagen", length = 100)
+	@Column(name = "imagen", length = 200)
 	public String getImagen() {
 		return this.imagen;
 	}

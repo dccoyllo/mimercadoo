@@ -10,10 +10,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import udaff.edu.pe.entities.Catalogo;
 import udaff.edu.pe.entities.Puesto;
@@ -53,35 +56,34 @@ public class PuestoController {
 	
 	@PostMapping("/catalogo/create")
 	@ResponseBody
-	public boolean createCatalogo(@RequestParam String titulo, @RequestParam String imagen,
-			@RequestParam int idTipoProducto, @RequestParam int idTipoVenta, @RequestParam double precio,
-			@RequestParam int cantidad, @RequestParam Date fechaCreada, @RequestParam int idPuesto) {
+	public boolean createCatalogo(@RequestBody ObjectNode dataCatalogo) {
 		Catalogo catalogo = new Catalogo();
-		catalogo.setTitulo(titulo);
-		catalogo.setImagen(imagen);
-		catalogo.setIdTipoProducto(idTipoProducto);
-		catalogo.setTipoVenta(pService.getTipoVenta(idTipoVenta));
-		catalogo.setPrecio(precio);
-		catalogo.setCantidad(cantidad);
-		catalogo.setFechaCreada(fechaCreada);
-		catalogo.setPuesto(pService.getIdPuesto(idPuesto));
+		
+		System.out.println(dataCatalogo);
+		catalogo.setTitulo(dataCatalogo.get("titulo").asText());
+		catalogo.setImagen(dataCatalogo.get("imagen").asText());
+		catalogo.setIdTipoProducto(dataCatalogo.get("tipoProducto_id").asInt());
+		catalogo.setTipoVenta(pService.getTipoVenta(dataCatalogo.get("tipoVenta_id").asInt()));
+		catalogo.setPrecio(dataCatalogo.get("precio").asDouble());
+		catalogo.setCantidad(dataCatalogo.get("cantidad").asInt());
+		catalogo.setFechaCreada(new Date());
+		catalogo.setPuesto(pService.getIdPuesto(dataCatalogo.get("puesto_id").asInt()));
 		return pService.setCatalogo(catalogo);
 	}
 
 	@PutMapping("/catalogo/update")
 	@ResponseBody
-	public boolean updateCatalogo(@RequestParam int idCatalogo, @RequestParam String titulo, @RequestParam String imagen,
-			@RequestParam int idTipoProducto, @RequestParam int idTipoVenta, @RequestParam double precio,
-			@RequestParam int cantidad, @RequestParam Date fechaCreada, @RequestParam int idPuesto) {
-		Catalogo catalogo = pService.getCatalogoId(idCatalogo);
-		catalogo.setTitulo(titulo);
-		catalogo.setImagen(imagen);
-		catalogo.setIdTipoProducto(idTipoProducto);
-		catalogo.setTipoVenta(pService.getTipoVenta(idTipoVenta));
-		catalogo.setPrecio(precio);
-		catalogo.setCantidad(cantidad);
-		catalogo.setFechaCreada(fechaCreada);
-		catalogo.setPuesto(pService.getIdPuesto(idPuesto));
+	public boolean updateCatalogo(@RequestBody ObjectNode dataCatalogo) {
+		System.out.println(dataCatalogo);
+		System.out.println(pService.getCatalogoId(dataCatalogo.get("catalogo_id").asInt()).getTitulo());
+		Catalogo catalogo = pService.getCatalogoId(dataCatalogo.get("catalogo_id").asInt());
+		catalogo.setTitulo(dataCatalogo.get("titulo").asText());
+		catalogo.setImagen(dataCatalogo.get("imagen").asText());
+		catalogo.setIdTipoProducto(dataCatalogo.get("tipoProducto_id").asInt());
+		catalogo.setTipoVenta(pService.getTipoVenta(dataCatalogo.get("tipoVenta_id").asInt()));
+		catalogo.setPrecio(dataCatalogo.get("precio").asDouble());
+		catalogo.setCantidad(dataCatalogo.get("cantidad").asInt());
+		catalogo.setFechaCreada(new Date());
 		return pService.updateCatalogo(catalogo);
 	}
 

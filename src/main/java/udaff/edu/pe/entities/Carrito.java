@@ -1,5 +1,5 @@
 package udaff.edu.pe.entities;
-// Generated 6 nov. 2020 12:04:27 by Hibernate Tools 5.2.12.Final
+// Generated 12 nov. 2020 0:23:06 by Hibernate Tools 5.2.12.Final
 
 import java.util.Date;
 import javax.persistence.AttributeOverride;
@@ -25,19 +25,16 @@ public class Carrito implements java.io.Serializable {
 	private Catalogo catalogo;
 	private Usuario usuario;
 	private int cantidad;
-	private double precioUnitario;
 	private Date fechaCreada;
 
 	public Carrito() {
 	}
 
-	public Carrito(CarritoId id, Catalogo catalogo, Usuario usuario, int cantidad, double precioUnitario,
-			Date fechaCreada) {
+	public Carrito(CarritoId id, Catalogo catalogo, Usuario usuario, int cantidad, Date fechaCreada) {
 		this.id = id;
 		this.catalogo = catalogo;
 		this.usuario = usuario;
 		this.cantidad = cantidad;
-		this.precioUnitario = precioUnitario;
 		this.fechaCreada = fechaCreada;
 	}
 
@@ -81,15 +78,6 @@ public class Carrito implements java.io.Serializable {
 
 	public void setCantidad(int cantidad) {
 		this.cantidad = cantidad;
-	}
-
-	@Column(name = "precio_unitario", nullable = false, precision = 22, scale = 0)
-	public double getPrecioUnitario() {
-		return this.precioUnitario;
-	}
-
-	public void setPrecioUnitario(double precioUnitario) {
-		this.precioUnitario = precioUnitario;
 	}
 
 	@Temporal(TemporalType.DATE)

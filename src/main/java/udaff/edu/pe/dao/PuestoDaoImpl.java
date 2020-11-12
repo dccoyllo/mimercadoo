@@ -57,7 +57,7 @@ public class PuestoDaoImpl implements PuestoDao {
 	@Override
 	public Catalogo getCatalogoId(int catalogo_id) {
 		// TODO Auto-generated method stub
-		return em.createQuery("From Catalogo", Catalogo.class).setParameter("id", catalogo_id).getSingleResult();
+		return em.find(Catalogo.class, catalogo_id);
 	}
 
 	@Override
